@@ -161,6 +161,7 @@
         <div class="row g-3 mt-2">
           <!-- Field Set #3: Tokens -->
           <div class="col-md-6">
+          
             <div class="border bg-light p-3 h-100">
               <div class="mb-2">
                 <label for="token" class="title">Organization ID Token</label>
@@ -169,10 +170,12 @@
               <div class="mb-2">
                 <label for="enrollauthtoken" class="title">Authentication Token</label>
                 <input type="text" class="form-control" id="enrollauthtoken" placeholder="Enter authentication token" disabled />
+
               </div>
               <div>
                 <label for="enrollencryptiontoken" class="title">Encryption Token</label>
                 <input type="text" class="form-control" id="enrollencryptiontoken" placeholder="Enter encryption token" disabled />
+                <span id="token-help-text" class="small pt-3 ps-1 d-block text-muted"></span>
               </div>
             </div>
           </div>
@@ -292,7 +295,12 @@
           return (mode.includes('idp') && val) ? `domain=${val}` : '';
         },
         token: val => val ? `token=${val}` : '',
-        enrollauthtoken: val => val ? `enrollauthtoken=${val}` : '',
+        enrollauthtoken: val => {
+          const mode = document.getElementById('userMode').value;
+          return (!mode.includes('idp') && val)
+            ? `enrollauthtoken=${val}`
+            : '';
+        },
         enrollencryptiontoken: val => val ? `enrollencryptiontoken=${val}` : '',
         'prelogon-user': val => val ? `prelogonuser=${val}@prelogon.netskope.com` : '',
         failClosed: val => val ? `fail-close=${val}` : '',
@@ -344,7 +352,14 @@
         const inputs = document.querySelectorAll('input:not(#tenant), select');
 
         inputs.forEach(el => {
-          if (el.disabled || optionalFields.includes(el.id)) {
+          const userMode = document.getElementById('userMode').value;
+          const isIdpMode = userMode.includes('idp');
+
+          if (
+            el.disabled ||
+            optionalFields.includes(el.id) ||
+            (isIdpMode && el.id === 'enrollauthtoken')
+          ) {
             el.classList.remove('pending-input');
             return;
           }
@@ -372,6 +387,13 @@
         const userMode = document.getElementById('userMode').value;
         const token = document.getElementById('token').value.trim();
         const enrollToken = document.getElementById('enrollauthtoken').value.trim();
+        const tokenHelpText = document.getElementById('token-help-text');
+
+        if (tenant && userMode) {
+          tokenHelpText.innerHTML = `You can find your tenant token information <a href="https://${tenant}.${domain}/ns#/settings?view=mdmDistribution" target="_blank">here</a>.`;
+        } else {
+          tokenHelpText.innerHTML = '';
+        }
 
         if (!tenant) {
           cmdOutput.textContent = '';
@@ -382,13 +404,29 @@
           return;
         }
 
+        const isIdpMode = userMode.includes('idp');
+
         let missing = [];
-        if (!userMode || !token || !enrollToken) missing.push("Almost there! Please provide the following:");
+
+        if (
+          !userMode ||
+          !token ||
+          (!isIdpMode && !enrollToken)
+        ) {
+          missing.push("Almost there! Please provide the following:");
+        }
+
         if (!userMode) missing.push("- Select an Enrollment Mode");
-        if (!token) missing.push("- Enter a Tenant Token");
-        if (!enrollToken) missing.push("- Enter an Authentication Token");
+        if (!token) missing.push("- Enter an Organization ID Token");
+
+        if (!isIdpMode && !enrollToken) {
+          missing.push("- Enter an Authentication Token");
+        }
 
         if (missing.length > 0) {
+          missing.push("");
+          missing.push("Note: An Encryption Token may still be required depending on your Secure Enrollment configuration.");
+
           cmdOutput.textContent = missing.join("\n");
           cmdOutput.classList.add("output-placeholder");
           copyButton.disabled = true;
