@@ -9,7 +9,7 @@ A simple HTML/JavaScript-based wizard to help generate installation commands for
 - Download button for the Netskope Client (Windows) 
 
 ## Video
-<img src="./Netskope_Client_MSI_Wizard_Demo.gif" width="500">
+<img src="./Netskope_Client_MSI_Wizard.gif" width="500">
 
 ## Usage
 1. Clone or download this repository.
