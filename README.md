@@ -1,10 +1,9 @@
-# Netskope Client MSI Wizard
+# Netskope Client Installation Parameter Wizard
 This interactive HTML/JavaScript wizard simplifies Windows Netskope Client deployments for IT administrators. Instead of manually piecing together multiple MSI parameters, users can select and configure options in a clean UI to instantly generate accurate, production-ready installation commands.
 
 ## Features
-- Guided form for entering MSI parameter values
-- Auto-generated example `msiexec` command output for Windows Netskope Client installations
-- Copy-to-clipboard functionality
+- Auto-generated parameter output for Netskope Client installations
+- Easy copy-to-clipboard button for generated parameter output
 - Download button for the Netskope Client (Windows) 
 
 ## Video
