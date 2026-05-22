@@ -4,7 +4,7 @@ This interactive HTML/JavaScript wizard simplifies Netskope Client deployments f
 ## Features
 - Auto-generated parameter output for Netskope Client installations
 - Easy copy-to-clipboard button for generated parameter output
-- Download buttons for the Netskope Client (Windows) 
+- Download buttons for the Netskope Client (Windows and macOS) 
 
 ## Video
 <img src="./Netskope_Client_MSI_Wizard.gif" width="500">
