@@ -138,9 +138,10 @@
                 <label for="domain" class="title">Domain</label>
                 <select class="form-select" id="domain" disabled>
                   <option value="goskope.com">goskope.com</option>
-                  <option value="eu.goskope.com">eu.goskope.com</option>
-                  <option value="de.goskope.com">de.goskope.com</option>
                   <option value="au.goskope.com">au.goskope.com</option>
+                  <option value="de.goskope.com">de.goskope.com</option>
+                  <option value="eu.goskope.com">eu.goskope.com</option>
+                  <option value="govskope.ca">govskope.ca</option>
                   <option value="govskope.us">govskope.us</option>
                 </select>
               </div>
@@ -152,10 +153,10 @@
               <div class="mb-2">
                 <label for="userMode" class="title">Client Enrollment Mode</label>
                 <select class="form-select" id="userMode" size="4" disabled>
-                  <option value="single-upn">UPN Enrollment - Single User</option>
                   <option value="multi-upn">UPN Enrollment - Multi-User</option>
-                  <option value="single-idp">IdP Enrollment - Single User</option>
+                  <option value="single-upn">UPN Enrollment - Single User</option>
                   <option value="multi-idp">IdP Enrollment - Multi-User</option>
+                  <option value="single-idp">IdP Enrollment - Single User</option>
                 </select>
               </div>
             </div>
@@ -432,7 +433,7 @@
           missing.push("Almost there! Please provide the following:");
         }
 
-        if (!userMode) missing.push("- Select an Enrollment Mode");
+        if (!userMode) missing.push("- Select a Client Enrollment Mode");
         if (!token) missing.push("- Organization ID Token");
 
         if (!isIdpMode && !enrollToken) {
