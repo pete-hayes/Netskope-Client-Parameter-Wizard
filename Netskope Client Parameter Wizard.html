@@ -237,7 +237,7 @@
               Download macOS Client
             </a>
             <button class="action-button" id="copyButton" type="button" disabled>
-              Copy Parameters
+              Copy Output
             </button>
           </div>
         </div>
@@ -312,7 +312,7 @@
         }[val] || '')
       };
 
-		function buildCommand() {
+      function buildCommand() {
         let parts = [];
         let ending = [];
 
@@ -344,13 +344,14 @@
             parts.push(hostParam);
         }
 
-        const msiexecCmd = `Example Windows Command:\n msiexec /I NSClient.msi ${parts.join(' ')} ${ending.join(' ')}`.trim();
+        // REMOVED EXTRA SPACE AFTER \n BELOW
+        const msiexecCmd = `Example Windows Command:\nmsiexec /I NSClient.msi ${parts.join(' ')} ${ending.join(' ')}`.trim();
         
         // This combines them into a single array in the exact command-line order
         const rawParamsList = parts.concat(ending);
 
-        // Return parameters stack separated by newlines, followed by the final full execution command line
-        return `Installation Parameters:\n ${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
+        // REMOVED EXTRA SPACE AFTER \n BELOW
+        return `Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
       }
 
       function highlightPendingFields() {
