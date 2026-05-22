@@ -41,7 +41,7 @@
       min-height: 60px;
       white-space: pre-line;
       border-radius: 4px;
-      display: flex;
+      display: none; /* Changed from 'flex' to 'none' to hide it initially */
       align-items: center;
       justify-content: flex-start;
     }
@@ -257,6 +257,7 @@
       const tenantInput = document.getElementById('tenant');
       const allOtherFields = document.querySelectorAll('input:not(#tenant), select, button#copyButton');
       const cmdOutput = document.getElementById('command');
+      const outputContainer = document.querySelector('.command-output'); // Added target box selector
       const copyButton = document.getElementById('copyButton');
       const downloadWinButton = document.getElementById('downloadWinButton');
       const downloadMacButton = document.getElementById('downloadMacButton');
@@ -404,6 +405,7 @@
 
         if (!tenant) {
           cmdOutput.textContent = '';
+          outputContainer.style.display = "none"; // Hide wrapper container when no tenant
           copyButton.disabled = true;
           copyButton.style.display = "none";
           downloadWinButton.style.display = "none";
@@ -437,6 +439,7 @@
 
           cmdOutput.textContent = missing.join("\n");
           cmdOutput.classList.add("output-placeholder");
+          outputContainer.style.display = "flex"; // Display helper instructions inside container
           copyButton.disabled = true;
           copyButton.style.display = "none";
           downloadWinButton.style.display = "none";
@@ -448,6 +451,7 @@
         const cmd = buildCommand();
         cmdOutput.textContent = cmd;
         cmdOutput.classList.remove("output-placeholder");
+        outputContainer.style.display = cmd ? "flex" : "none"; // Dynamically toggle container block based on content presence
         copyButton.disabled = !cmd;
         copyButton.style.display = cmd ? "inline-block" : "none";
 
