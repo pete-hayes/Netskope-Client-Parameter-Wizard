@@ -1,41 +1,26 @@
-<!-- 
-  Netskope Client Parameter Wizard
-  Version: 1.21
-  Author: Peter Hayes
-  Disclaimer: This tool is not affiliated with or supported by Netskope. Use at your own risk.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Netskope Client Parameter Wizard</title>
-  <link 
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-  crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
     /* Page layout */
     body { 
       margin: 0 auto; 
       width: 900px; 
     }
-
     h1 { 
       text-align: center; 
     }
-
     /* Label styles */
     label.title { 
       font-weight: bold; 
       font-size: 18px; 
     }
-
     .form-check-label { 
       font-weight: bold; 
       color: #000; 
     }
-
     /* Command output terminal styling */
     .command-output {
       font-family: "Courier New", Courier, monospace;
@@ -51,7 +36,6 @@
       align-items: center;
       justify-content: flex-start;
     }
-
     .command-output code {
       color: inherit;
       font-size: 1rem;
@@ -59,12 +43,10 @@
       line-height: 1.4;
       padding: 10px 0;
     }
-
     .output-placeholder {
       color: #888;
       font-style: italic;
     }
-
     /* Copy/Download button styling */
     .action-button {
       background-color: #111; 
@@ -77,32 +59,26 @@
       display: none;
       text-decoration: none;
     }
-
     .action-button:hover {
       background-color: #33ff33;
       color: #000;
     }
-
     .action-button:focus {
       outline: none;
     }
-
     /* Extra small text */
     .text-xs {
       font-size: 60%;
     }
-
     /* Highlight pending required fields with border */
     .pending-input {
       border: 1px solid #ffc107 !important;
       box-shadow: 0 0 5px rgba(255, 193, 7, 0.6);
     }
-    
     #token-help-text {
       display: block;
       margin-bottom: 0.5rem;
     }
-
     #token-help-text:empty {
       display: none !important;
       margin-bottom: 0;
@@ -114,16 +90,13 @@
     <div class="text-center">
       <h1>Netskope Client Parameter Wizard</h1>
     </div>
-
     <form>
       <div class="container pt-2">
-
         <div class="text-center small mb-3">
           <a href="https://docs.netskope.com/en/netskope-client-deployment-options">
             Netskope Client Deployment Documentation
           </a>
         </div>
-
         <div class="row g-3">
           <div class="col-md-6">
             <div class="border bg-light p-3 h-100">
@@ -147,7 +120,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-6">
             <div class="border bg-light p-3 h-100">
               <div class="mb-2">
@@ -162,10 +134,8 @@
             </div>
           </div>
         </div>
-
         <div class="row g-3 mt-2">
           <div class="col-md-6">
-          
             <div class="border bg-light p-3 h-100">
               <span id="token-help-text" class="small text-muted"></span>
               <div class="mb-2">
@@ -173,8 +143,7 @@
                 <input type="text" class="form-control" id="token" placeholder="Enter organization ID token" disabled />
               </div>
               <div class="mb-2">
-                <label for="enrollauthtoken" class="title">Authentication Token</label>
-                <input type="text" class="form-control" id="enrollauthtoken" placeholder="Enter authentication token" disabled />
+                <label for="enrollauthtoken" class="title">Authentication Token</label>                <input type="text" class="form-control" id="enrollauthtoken" placeholder="Enter authentication token" disabled />
               </div>
               <div>
                 <label for="enrollencryptiontoken" class="title">Encryption Token</label>
@@ -182,7 +151,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-6">
             <div class="border bg-light p-3 h-100">
               <div class="mb-2">
@@ -197,8 +165,7 @@
                 <label for="failClosed" class="title">Fail-Closed Action</label>
                 <label class="text-xs">Optional</label>
                 <select class="form-select" id="failClosed" disabled>
-                  <option value="" disabled selected>--Select Failover Mode--</option>
-                  <option value="disable">Disabled</option>
+                  <option value="" disabled selected>--Select Failover Mode--</option>                  <option value="disable">Disabled</option>
                   <option value="no-npa">SWG/CASB (not NPA)</option>
                 </select>
               </div>
@@ -210,7 +177,6 @@
             </div>
           </div>
         </div>
-
         <div class="row g-3 mt-2">
           <div class="col-12">
             <div class="border bg-light p-3">
@@ -231,45 +197,40 @@
             </div>
           </div>
         </div>
-
         <div class="container mt-4 p-0">
           <div class="command-output">
             <code id="command" class="output-placeholder"></code>
           </div>
           <div class="text-end mt-2 mb-4">
             <a class="action-button" id="downloadWinButton" href="#" target="_blank">
-              Download Windows Client
+            Windows Client
             </a>
             <a class="action-button" id="downloadMacButton" href="#" target="_blank">
-              Download macOS Client
+            macOS Client
             </a>
             <button class="action-button" id="copyButton" type="button" disabled>
               Copy Output
             </button>
           </div>
         </div>
-
       </div>
     </form>
   </div>
-  
   <footer class="text-center mt-2 mb-3">
     <small class="text-muted">
       This tool is not affiliated with or supported by Netskope. Use at your own risk.
     </small>
   </footer>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const tenantInput = document.getElementById('tenant');
       const allOtherFields = document.querySelectorAll('input:not(#tenant), select, button#copyButton');
       const cmdOutput = document.getElementById('command');
-      const outputContainer = document.querySelector('.command-output'); // Added target box selector
+      const outputContainer = document.querySelector('.command-output');
       const copyButton = document.getElementById('copyButton');
       const downloadWinButton = document.getElementById('downloadWinButton');
       const downloadMacButton = document.getElementById('downloadMacButton');
-
-      // IDs of optional fields (exclude from highlighting)
+      
       const optionalFields = ['prelogon-user', 'failClosed', 'log-file-path', 'enrollencryptiontoken'];
 
       function setFieldsEnabled(enabled) {
@@ -301,9 +262,7 @@
         token: val => val ? `token=${val}` : '',
         enrollauthtoken: val => {
           const mode = document.getElementById('userMode').value;
-          return (!mode.includes('idp') && val)
-            ? `enrollauthtoken=${val}`
-            : '';
+          return (!mode.includes('idp') && val) ? `enrollauthtoken=${val}` : '';
         },
         enrollencryptiontoken: val => val ? `enrollencryptiontoken=${val}` : '',
         'prelogon-user': val => val ? `prelogonuser=${val}@prelogon.netskope.com` : '',
@@ -314,29 +273,35 @@
         'log-file-path': val => val ? `/l*v \"${val}\"` : '',
         userMode: val => ({
           'single-upn': '',
-          'single-idp': 'installmode=IDP',
-          'multi-upn': 'mode=peruserconfig',
-          'multi-idp': 'mode=peruserconfig installmode=IDP'
+          'single-idp': ['installmode=IDP'],
+          'multi-upn': ['mode=peruserconfig'],
+          'multi-idp': ['mode=peruserconfig', 'installmode=IDP']
         }[val] || '')
       };
 
       function buildCommand() {
         let parts = [];
         let ending = [];
-
-        // Exclude inputs inside the action button container to prevent bugs
         const inputs = document.querySelectorAll('form input:not(.action-button), form select');
+        
         inputs.forEach(el => {
           const id = el.id;
           let val = (el.type === 'checkbox') ? el.checked : el.value;
           if (parameterMap[id]) {
             const param = parameterMap[id](val);
-
             if (param) {
               if (id === "autoUpdate" || id === "silentInstall") {
-                ending.push(param);
+                if (Array.isArray(param)) {
+                  ending.push(...param);
+                } else {
+                  ending.push(param);
+                }
               } else {
-                parts.push(param);
+                if (Array.isArray(param)) {
+                  parts.push(...param);
+                } else {
+                  parts.push(param);
+                }
               }
             }
           }
@@ -346,48 +311,35 @@
         const domain = document.getElementById('domain').value;
         const userMode = document.getElementById('userMode').value;
 
-        // Only add host parameter if not using IdP mode
         if (tenant && domain && !userMode.includes('idp')) {
             const hostParam = `host=addon-${tenant}.${domain}`;
             parts.push(hostParam);
         }
 
-        // REMOVED EXTRA SPACE AFTER \n BELOW
         const msiexecCmd = `Example Windows Command:\nmsiexec /I NSClient.msi ${parts.join(' ')} ${ending.join(' ')}`.trim();
-        
-        // This combines them into a single array in the exact command-line order
         const rawParamsList = parts.concat(ending);
 
-        // REMOVED EXTRA SPACE AFTER \n BELOW
         return `Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
       }
 
       function highlightPendingFields() {
         const tenant = tenantInput.value.trim();
         const inputs = document.querySelectorAll('form input:not(#tenant), form select');
-
         inputs.forEach(el => {
           const userMode = document.getElementById('userMode').value;
           const isIdpMode = userMode.includes('idp');
-
-          if (
-            el.disabled ||
-            optionalFields.includes(el.id) ||
-            (isIdpMode && el.id === 'enrollauthtoken')
-          ) {
+          if (el.disabled || optionalFields.includes(el.id) || (isIdpMode && el.id === 'enrollauthtoken')) {
             el.classList.remove('pending-input');
             return;
           }
-
           let isEmpty = false;
           if (el.type === 'checkbox') {
-            isEmpty = false; // skip checkboxes
+            isEmpty = false;
           } else if (el.tagName === 'SELECT') {
             isEmpty = !el.value;
           } else {
             isEmpty = !el.value.trim();
           }
-
           if (tenant && isEmpty) {
             el.classList.add('pending-input');
           } else {
@@ -412,7 +364,7 @@
 
         if (!tenant) {
           cmdOutput.textContent = '';
-          outputContainer.style.display = "none"; // Hide wrapper container when no tenant
+          outputContainer.style.display = "none";
           copyButton.disabled = true;
           copyButton.style.display = "none";
           downloadWinButton.style.display = "none";
@@ -422,20 +374,12 @@
         }
 
         const isIdpMode = userMode.includes('idp');
-
         let missing = [];
-
-        if (
-          !userMode ||
-          !token ||
-          (!isIdpMode && !enrollToken)
-        ) {
+        if (!userMode || !token || (!isIdpMode && !enrollToken)) {
           missing.push("Almost there! Please provide the following:");
         }
-
         if (!userMode) missing.push("- Select a Client Enrollment Mode");
         if (!token) missing.push("- Organization ID Token");
-
         if (!isIdpMode && !enrollToken) {
           missing.push("- Authentication Token");
         }
@@ -443,10 +387,9 @@
         if (missing.length > 0) {
           missing.push("");
           missing.push("IMPORTANT: An Encryption Token may still be required depending on your Secure Enrollment configuration.");
-
           cmdOutput.textContent = missing.join("\n");
           cmdOutput.classList.add("output-placeholder");
-          outputContainer.style.display = "flex"; // Display helper instructions inside container
+          outputContainer.style.display = "flex";
           copyButton.disabled = true;
           copyButton.style.display = "none";
           downloadWinButton.style.display = "none";
@@ -458,25 +401,21 @@
         const cmd = buildCommand();
         cmdOutput.textContent = cmd;
         cmdOutput.classList.remove("output-placeholder");
-        outputContainer.style.display = cmd ? "flex" : "none"; // Dynamically toggle container block based on content presence
+        outputContainer.style.display = cmd ? "flex" : "none";
         copyButton.disabled = !cmd;
         copyButton.style.display = cmd ? "inline-block" : "none";
 
-        // Build download URLs
         if (tenant && domain) {
           const downloadWinUrl = `https://download-${tenant}.${domain}/dlr/win/get`;
           const downloadMacUrl = `https://download-${tenant}.${domain}/dlr/mac/get`;
-          
           downloadWinButton.href = downloadWinUrl;
           downloadMacButton.href = downloadMacUrl;
-          
           downloadWinButton.style.display = cmd ? "inline-block" : "none";
           downloadMacButton.style.display = cmd ? "inline-block" : "none";
         } else {
           downloadWinButton.style.display = "none";
           downloadMacButton.style.display = "none";
         }
-
         highlightPendingFields();
       }
 
