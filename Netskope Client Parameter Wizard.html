@@ -1,6 +1,6 @@
 <!-- 
   Netskope Client Parameter Wizard
-  Version: 1.22
+  Version: 1.23
   Author: Peter Hayes
   Disclaimer: This tool is not affiliated with or supported by Netskope. Use at your own risk.
 -->
@@ -107,14 +107,14 @@
           <div class="col-md-6">
             <div class="border bg-light p-3 h-100">
               <div class="mb-2">
-                <label for="tenant" class="title">Tenant</label>
-                <input type="text" class="form-control" id="tenant" placeholder="Enter your tenant host" />
+                <label for="tenant" class="title">Netskope Tenant</label>
+                <input type="text" class="form-control" id="tenant" placeholder="Enter your tenant host..." />
                 <span class="small pt-1 ps-1 d-block">
                   Enter only the bolded host, <b>tenant</b>.goskope.com
                 </span>
               </div>
               <div>
-                <label for="domain" class="title">Domain</label>
+                <label for="domain" class="title">Netskope Domain</label>
                 <select class="form-select" id="domain" disabled>
                   <option value="goskope.com">goskope.com</option>
                   <option value="au.goskope.com">au.goskope.com</option>
@@ -146,14 +146,15 @@
               <span id="token-help-text" class="small text-muted"></span>
               <div class="mb-2">
                 <label for="token" class="title">Organization ID Token</label>
-                <input type="text" class="form-control" id="token" placeholder="Enter organization ID token" disabled />
+                <input type="text" class="form-control" id="token" placeholder="Enter organization ID token..." disabled />
               </div>
               <div class="mb-2">
-                <label for="enrollauthtoken" class="title">Authentication Token</label>                <input type="text" class="form-control" id="enrollauthtoken" placeholder="Enter authentication token" disabled />
+                <label for="enrollauthtoken" class="title">Authentication Token</label>
+                <input type="text" class="form-control" id="enrollauthtoken" placeholder="Enter authentication token..." disabled />
               </div>
               <div>
                 <label for="enrollencryptiontoken" class="title">Encryption Token</label>
-                <input type="text" class="form-control" id="enrollencryptiontoken" placeholder="Enter encryption token" disabled />
+                <input type="text" class="form-control" id="enrollencryptiontoken" placeholder="Enter encryption token..." disabled />
               </div>
             </div>
           </div>
@@ -171,7 +172,8 @@
                 <label for="failClosed" class="title">Fail-Closed Action</label>
                 <label class="text-xs">Optional</label>
                 <select class="form-select" id="failClosed" disabled>
-                  <option value="" disabled selected>--Select Failover Mode--</option>                  <option value="disable">Disabled</option>
+                  <option value="" disabled selected>--Select Failover Mode--</option>
+                  <option value="disable">Disabled</option>
                   <option value="no-npa">SWG/CASB (not NPA)</option>
                 </select>
               </div>
@@ -250,12 +252,6 @@
         update();
       });
 
-      let npavdiInteracted = false;
-      document.getElementById('npavdimode').addEventListener('change', () => {
-        npavdiInteracted = true;
-        update();
-      });
-
       const parameterMap = {
         tenant: val => {
           const mode = document.getElementById('userMode').value;
@@ -274,7 +270,7 @@
         'prelogon-user': val => val ? `prelogonuser=${val}@prelogon.netskope.com` : '',
         failClosed: val => val ? `fail-close=${val}` : '',
         autoUpdate: val => `autoupdate=${val ? 'on' : 'off'}`,
-        npavdimode: val => (npavdiInteracted ? `npavdimode=${val ? 'on' : 'off'}` : ''),
+        npavdimode: val => val ? 'npavdimode=on' : '',
         silentInstall: val => val ? '/qn' : '',
         'log-file-path': val => val ? `/l*v \"${val}\"` : '',
         userMode: val => ({
@@ -325,7 +321,7 @@
         const msiexecCmd = `Example Windows Command:\nmsiexec /I NSClient.msi ${parts.join(' ')} ${ending.join(' ')}`.trim();
         const rawParamsList = parts.concat(ending);
 
-        return `Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
+        return `Netskope Client Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
       }
 
       function highlightPendingFields() {
