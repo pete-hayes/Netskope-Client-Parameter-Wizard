@@ -5,9 +5,7 @@ This interactive HTML/JavaScript wizard simplifies Netskope Client deployments f
 - Auto-generated parameter output for Netskope Client installations
 - Easy copy-to-clipboard button for generated parameter output
 - Download buttons for the Netskope Client (Windows and macOS) 
-
 <img width="800" src="https://github.com/user-attachments/assets/c5b924f7-d4cc-4453-a60e-cf5e1e626cd8" />
-
 ## Usage
 1. Clone or download this repository.
 2. Open `Netskope Client Parameter Wizard.html` in your browser.
