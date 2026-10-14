@@ -1,10 +1,11 @@
 # Netskope Client Parameter Wizard
-This interactive HTML/JavaScript wizard simplifies Netskope Client deployments for IT administrators. Instead of manually piecing together multiple parameters, users can select and configure options in a clean UI to instantly generate accurate, production-ready installation parameters.
+Streamline your Netskope Client deployments. This interactive tool replaces error-prone manual configuration with a clean UI, letting IT admins select parameters and instantly generate production-ready installation commands for Windows and macOS.
 
 ## Features
-- Auto-generated parameter output for Netskope Client installations
-- Easy copy-to-clipboard button for generated parameter output
-- Download buttons for the Netskope Client (Windows and macOS)
+- **Broad Parameter Support:** Supports all major and ~90% of available Netskope Client installation parameters.
+- **Key Feature Compatibility:** Includes full support for Enrollment Mode, Secure Enrollment, Enforce Enrollment, and Private Access (NPA) Prelogon.
+- **Automated Output:** Automatically generates parameter strings and includes ready-to-use Windows installation command examples.
+- **One-Click Actions:** Features a one-click copy-to-clipboard button for generated parameters and direct download buttons for Netskope Client (Windows and macOS).
 
 <img width="800" src="https://github.com/user-attachments/assets/d1585808-0daa-4e42-a57f-6691fe81710f" />
 
