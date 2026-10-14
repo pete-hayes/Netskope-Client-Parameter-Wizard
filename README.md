@@ -1,5 +1,5 @@
 # Netskope Client Parameter Wizard
-Streamline your Netskope Client deployments. This interactive tool replaces error-prone manual configuration with a clean UI, letting IT admins select parameters and instantly generate production-ready installation commands for Windows and macOS.
+Streamline your Netskope Client deployments with this interactive tool, replacing error-prone manual parameter building with a clean interface, letting IT admins enter parameter values and instantly generate production-ready installation parameters for Windows and macOS.
 
 ## Features
 - **Broad Parameter Support:** Supports all major and ~90% of available Netskope Client installation parameters.
