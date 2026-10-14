@@ -6,7 +6,7 @@ This interactive HTML/JavaScript wizard simplifies Netskope Client deployments f
 - Easy copy-to-clipboard button for generated parameter output
 - Download buttons for the Netskope Client (Windows and macOS) 
 
-<img width="800" src="https://github.com/user-attachments/assets/f7ca7f6c-89c0-4f40-910b-c744d3bf2c58" />
+<img width="800" height="1200" alt="Screenshot" src="https://github.com/user-attachments/assets/c5b924f7-d4cc-4453-a60e-cf5e1e626cd8" />
 
 ## Usage
 1. Clone or download this repository.
@@ -15,6 +15,10 @@ This interactive HTML/JavaScript wizard simplifies Netskope Client deployments f
 4. Copy the generated command or parameters and use either in your software deployment solution or from the command line.
 
 ## Change Log
+### Version: 1.52 - Oct 14 2026
+- Added tooltips for fields that may require more attention or clarification
+- Updated to use the latest Bootstrap and Font Awesome libraries
+
 ### Version: 1.51 - Oct 13 2026
 - Implemented cleaner responsive design
 - Moved output to be to the right of the form, unless the page width is too narrow, in which case it moves to the original bottom position
