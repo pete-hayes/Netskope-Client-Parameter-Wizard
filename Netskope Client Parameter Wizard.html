@@ -1,6 +1,6 @@
 <!--
 Netskope Client Parameter Wizard
-Version: 1.53.1
+Version: 1.53.2
 Author: Peter Hayes
 Disclaimer: This tool is not affiliated with or supported by Netskope. Use at your own risk.
 -->
@@ -345,26 +345,26 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
         font-size: 0.78rem;
       }
 
+      .text-center.mt-2.mb-4 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .action-button { margin: 0; }
+
       @media (max-width: 767.98px) {
         body {
           width: min(100% - 24px, 1600px);
           padding-top: 18px;
         }
 
-      .border.bg-light.p-3.h-100 {
+        .border.bg-light.p-3.h-100 {
           padding: 1rem !important;
         }
 
         .form-control, .form-select { max-width: 100% !important; }
-
-        .text-end.mt-2.mb-4 {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: flex-end;
-          gap: 0.35rem;
-        }
-
-        .action-button { margin: 0; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -566,7 +566,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
   <div class="command-output">
     <code id="command" class="output-placeholder"></code>
   </div>
-<div class="text-end mt-2 mb-4">
+<div class="text-center mt-2 mb-4">
   <a class="action-button" id="downloadWinButton" href="#" aria-label="Download Windows Client">
     <i class="fa-brands fa-windows me-2" aria-hidden="true"></i>Windows Client
   </a>
