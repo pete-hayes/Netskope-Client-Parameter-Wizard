@@ -4,7 +4,7 @@ Streamline your Netskope Client deployments with this interactive tool, replacin
 ## Features
 - **Broad Parameter Support:** Supports all major and ~90% of available Netskope Client installation parameters.
 - **Key Feature Compatibility:** Includes full support for Enrollment Mode, Secure Enrollment, Enforce Enrollment, and Private Access (NPA) Prelogon.
-- **Automated Output:** Automatically generates parameter strings and includes ready-to-use Windows installation command examples.
+- **Automated Output:** Automatically generates valid parameters and values and includes ready-to-use Windows installation command examples.
 - **One-Click Actions:** Features a one-click copy-to-clipboard button for generated parameters and direct download buttons for Netskope Client (Windows and macOS).
 
 <img width="800" src="https://github.com/user-attachments/assets/d1585808-0daa-4e42-a57f-6691fe81710f" />
