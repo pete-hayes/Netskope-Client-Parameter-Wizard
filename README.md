@@ -9,7 +9,7 @@ This interactive HTML/JavaScript wizard simplifies Netskope Client deployments f
 <img width="800" src="https://github.com/user-attachments/assets/d1585808-0daa-4e42-a57f-6691fe81710f" />
 
 ## Usage
-1. Clone or download this repository.
+1. [Download](https://github.com/pete-hayes/Netskope-Client-Parameter-Wizard/archive/refs/heads/main.zip) the Netskope Client Parameter Wizard.
 2. Open `Netskope Client Parameter Wizard.html` in your browser.
 3. Enter your Netskope parameters as required.
 4. Copy the generated command or parameters and use either in your software deployment solution or from the command line.
