@@ -1,6 +1,6 @@
 <!--
 Netskope Client Parameter Wizard
-Version: 1.53.3
+Version: 1.53.4
 Author: Peter Hayes
 Disclaimer: This tool is not affiliated with or supported by Netskope. Use at your own risk.
 -->
@@ -460,6 +460,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
   <div class="border bg-light p-3 h-100">
     <div class="mb-2">
       <label for="enforce-enroll-steering-profile-id" class="title">Enforce Enrollment Profile ID
+                   <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Enforce Enrollment blocks internet access until the user completes enrollment using the Netskope Client." tabindex="0"></i>
           </label>
       <label class="text-xs">Optional</label>
       <input type="text" class="form-control" id="enforce-enroll-steering-profile-id" placeholder="Enter enrollment profile ID..." disabled="disabled" style="max-width:360px" />
@@ -468,6 +469,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
 
   <div class="mb-2 mt-1">
     <label for="enforce-enroll-frequency" class="title">Enrollment Reminder Frequency
+                   <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Controls how frequently reminders with an Enroll button appear after a user defers Netskope Client enrollment." tabindex="0"></i>
           </label>
     <label class="text-xs">Optional</label>
     <div class="input-group">
@@ -497,6 +499,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
       <span id="token-help-text" class="small text-muted"></span>
       <div class="mb-2">
         <label for="silent-Install" class="title">Hide Netskope Client Installer
+                   <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hides the Netskope Client installer and suppresses all error messages and setup failures from the user." tabindex="0"></i>
           </label>
           <label class="text-xs">Optional</label>
           <div class="form-check form-switch">
@@ -506,6 +509,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
         </div>
     <div class="mb-2">
        <label for="log-file-path" class="title">Installation Log File Path
+                   <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="This parameter is only applicable to Windows-based Netskope Client installations." tabindex="0"></i>
           </label>
     <label class="text-xs">Optional</label>
     <input type="text" class="form-control" id="log-file-path" placeholder="e.g., C:\Temp\nscinstall.log" disabled style="max-width:350px" />
