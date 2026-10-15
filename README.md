@@ -7,7 +7,8 @@ Streamline your Netskope Client deployments with this interactive tool, replacin
 - **Automated Output:** Automatically generates valid parameters and values and includes ready-to-use Windows installation command examples.
 - **One-Click Actions:** Features a one-click copy-to-clipboard button for generated parameters and direct download buttons for Netskope Client (Windows and macOS).
 
-<img width="800" src="https://github.com/user-attachments/assets/d1585808-0daa-4e42-a57f-6691fe81710f" />
+<img width="800" src="https://github.com/user-attachments/assets/4ce4b18f-eca5-4183-93c3-5d0d25975f4a" />
+
 
 ## Usage
 1. [Download](https://github.com/pete-hayes/Netskope-Client-Parameter-Wizard/archive/refs/heads/main.zip) the Netskope Client Parameter Wizard.
