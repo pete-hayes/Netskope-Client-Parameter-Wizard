@@ -1,6 +1,6 @@
 <!--
 Netskope Client Parameter Wizard
-Version: 1.53.4
+Version: 1.54
 Author: Peter Hayes
 Disclaimer: This tool is not affiliated with or supported by Netskope. Use at your own risk.
 -->
@@ -479,7 +479,7 @@ Disclaimer: This tool is not affiliated with or supported by Netskope. Use at yo
 </div>
 <div>
   <label for="failClosed" class="title">Fail Close Override Action
-            <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="This overrides the corresponding Fail Close setting in the Client Configuration profile configured in your Netskope tenant." tabindex="0"></i>
+            <i class="fa-solid fa-circle-info field-help" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Apart from Enforce Enrollment, this overrides the Client Configuration's Fail Close setting if the Netskope Client cannot connect to the Netskope platform." tabindex="0"></i>
           </label>
   <label class="text-xs">Optional</label>
   <select class="form-select" id="failClosed" disabled style="max-width: 300px" />
@@ -698,8 +698,7 @@ if (tenant && domain && (!userMode.includes('idp') || profileId)) {
 
 const msiexecCmd = `Example Windows Command:\nmsiexec /I NSClient.msi ${parts.join(' ')} ${ending.join(' ')}`.trim();
 const rawParamsList = parts.concat(ending);
-return `Netskope Client Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}`;
-}
+return `Netskope Client Installation Parameters:\n${rawParamsList.join('\n')}\n\n${msiexecCmd}\n\nWindows Client Download:\nhttps://download-${document.getElementById('tenant').value.trim()}.${document.getElementById('domain').value}/dlr/win/get\n\nmacOS Client Download:\nhttps://download-${document.getElementById('tenant').value.trim()}.${document.getElementById('domain').value}/dlr/mac/get`;}
 function highlightPendingFields() {
   const tenant = tenantInput.value.trim();
   const inputs = document.querySelectorAll('form input:not(#tenant), form select');
