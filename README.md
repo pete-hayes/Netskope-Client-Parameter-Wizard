@@ -17,6 +17,9 @@ Streamline your Netskope Client deployments with this interactive tool, replacin
 4. Copy the generated command or parameters and use either in your software deployment solution or from the command line.
 
 ## Change Log
+### Version: 1.54 - Oct 27 2026
+- Added Windows and macOS Netskope Client installer download links to the auto-generated output
+
 ### Version: 1.53 - Oct 14 2026
 - Added tooltips for fields that may require more attention or clarification
 - Updated to use the latest Bootstrap and Font Awesome libraries
